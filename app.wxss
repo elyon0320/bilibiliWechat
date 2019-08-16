@@ -1,0 +1,6 @@
+/**导入相对路径的字体样式**/
+@import "styles/font-awesome.wxss";
+
+page,view,image,swiper,swiper-item,navigator,video{
+	box-sizing: border-box;
+}

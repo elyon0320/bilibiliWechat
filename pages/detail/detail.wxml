@@ -1,0 +1,75 @@
+
+<view class="main">
+	<!-- 公共的头部结构 -->
+	<MyTitle></MyTitle>
+	<!-- 视频详情 -->
+	<view class="video_info">
+		<!-- 视频标签	 -->
+		<video src="{{videoInfo.videoSrc}}" controls="true"></video>
+		<!-- 视频标题 -->
+		<view class="video_title">
+			<text>{{videoInfo.videoTitle}}</text>
+			<text class="fa fa-angle-down"></text>
+		</view>
+		<!-- 视频作者相关信息 -->
+		<view class="video_detail">
+			<!-- 1.作者 -->
+			<text class="author">{{videoInfo.author}}</text>
+			<!-- 2.播放量 -->
+			<text class="play_count">{{videoInfo.playCount}}</text>
+			<!-- 3.评论数 -->
+			<text class="comment_count">{{videoInfo.commentCount}}条弹幕</text>
+			<!-- 4.时间 -->
+			<text class="data">{{videoInfo.data}}</text>
+		</view>
+	</view>
+	<!-- 更多推荐视频部分 -->
+	<view class="other_list">
+		<navigator class="item_other" wx:for="{{othersList}}" wx:key="{{index}}">
+			<!-- 视频预览图片 -->
+			<view class="other_img_wrap">
+				<image src="{{item.imgSrc}}" mode="widthFix"></image>
+			</view>
+			<!-- 视频说明文字 -->
+			<view class="other_info">
+				<!-- 标题 -->
+				<view class="other_title">{{item.title}}</view>
+				<!-- 播放量 -->
+				<view class="other_detail">
+					<!-- 播放数 -->
+					<view class="play_count">{{item.playMsg}}万次观看</view>
+					<!-- 评论数 -->
+					<view class="comment_count">{{item.commentCount}}条弹幕</view>
+				</view>
+			</view>
+		</navigator>
+	</view>
+	<!-- 评论列表 -->
+	<view class="comment_wrap">
+		<view class="comment_title">
+			评论({{commentList.commentTotalCount}})
+		</view>
+		<!-- 评论遍历循环体 -->
+		<view class="comment_list">
+			<view class="comment_item" wx:for="{{commentList.commentList}}" wx:key="{{index}}">
+				<!-- 左侧头像 -->
+				<view class="comment_user">
+					<image src="{{item.userIconSrc}}" mode="widthFix"></image>
+				</view>
+				<!-- 右侧评论 -->
+				<view class="comment_info">
+					<!-- 用户名+发表评论日期 -->
+					<view class="comment_detail">
+						<text class="author">{{item.username}}</text>
+						<text class="data">{{item.commentDate}}</text>
+					</view>
+					<!-- 评论文字 -->
+					<view class="comment_content">
+						{{item.commentInfo}}
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
